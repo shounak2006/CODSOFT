@@ -1,0 +1,221 @@
+:root {
+    --bg-deep: #0a0a0a;
+    --bg-surface: #141414;
+    --text-main: #ffffff;
+    --text-muted: #808080;
+    --brand-red: #e50914; /* Netflix Red */
+    --brand-red-hover: #f40612;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.navbar {
+    padding: 1.5rem 4rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--brand-red);
+}
+
+.hero {
+    height: 60vh;
+    min-height: 400px;
+    background-image: linear-gradient(to top, var(--bg-deep) 0%, rgba(10,10,10,0.2) 70%),
+                      url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Generic cinematic theater background */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #d2d2d2;
+    margin-bottom: 2.5rem;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-bar {
+    display: flex;
+    height: 60px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px 0 0 4px;
+    color: #333;
+}
+
+.search-bar input:focus {
+    outline: none;
+    background: #fff;
+}
+
+.search-bar button {
+    padding: 0 2rem;
+    background-color: var(--brand-red);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: var(--brand-red-hover);
+}
+
+.error-msg {
+    color: #e50914;
+    font-weight: 600;
+    margin-top: 1rem;
+    background: rgba(0,0,0,0.8);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+/* Results Area */
+.results-section {
+    padding: 4rem;
+    background-color: var(--bg-deep);
+    min-height: 40vh;
+}
+
+.results-header {
+    margin-bottom: 3rem;
+}
+
+.results-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--brand-red);
+    font-weight: 800;
+}
+
+.results-header p {
+    color: var(--text-muted);
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.movie-card {
+    background: var(--bg-surface);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease backwards;
+}
+
+.movie-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--brand-red);
+    transform: scaleY(0);
+    transition: transform 0.3s transform-origin;
+    transform-origin: bottom;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.movie-card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.mc-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.mc-genre {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mc-rank {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.03);
+    z-index: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamSuggest | Movie Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Stream<span>Suggest</span></div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Favorite Story.</h1>
+            <p>Our powerful AI recommendation engine uses pure mathematics to analyze metadata, genres, and themes to connect you with movies you'll love.</p>
+            
+            <div class="search-container">
+                <form id="search-form" class="search-bar">
+                    <input type="text" id="movie-input" placeholder="Type a movie you love (e.g., The Matrix)..." autocomplete="off" required>
+                    <button type="submit" id="search-btn">Find Matches</button>
+                </form>
+            </div>
+            <div id="error-message" class="error-msg hidden"></div>
+        </div>
+    </header>
+
+    <main class="results-section hidden" id="results-section">
+        <div class="results-header">
+            <h2>Because you liked: <span id="matched-movie" class="highlight"></span></h2>
+            <p>Our Neural Engine confidently thinks you will enjoy these titles:</p>
+        </div>
+
+        <div class="movies-grid" id="movies-grid">
+            <!-- Dynamic Movie Cards injected here via JS -->
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -4,6 +4,32 @@ This repository contains multiple tasks completed for the CODSOFT Artificial Int
 
 ---
 
+## 🍿 Task 4: AI Movie Recommendation System
+
+A powerful Content-Based recommendation engine built with Scikit-Learn. It utilizes TF-IDF text vectorization and Cosine Similarity to mathematically cluster movies based on their genres and tags, returning optimal suggestions via a Netflix-style UI.
+
+### 🚀 How to Run Task 4
+
+1. **Navigate to the Task 4 folder:**
+```bash
+cd task4_recommender
+```
+
+2. **Install NLP Dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Start the Web Server:**
+```bash
+python app.py
+```
+
+4. **Get Recommendations:**
+Open your browser and navigate to `http://127.0.0.1:5003`. Type in a favorite movie (e.g., "The Matrix") and see what the AI suggests!
+
+---
+
 ## 📷 Task 3: Image Captioning AI (Vision Transformer)
 
 An advanced full-stack Web Application that utilizes a **State-of-the-Art HuggingFace Vision-Transformer model (BLIP)** to automatically generate highly accurate natural language captions for uploaded images.
