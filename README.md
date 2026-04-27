@@ -4,6 +4,34 @@ This repository contains multiple tasks completed for the CODSOFT Artificial Int
 
 ---
 
+## 📷 Task 3: Image Captioning AI (Vision Transformer)
+
+An advanced full-stack Web Application that utilizes a **State-of-the-Art HuggingFace Vision-Transformer model (BLIP)** to automatically generate highly accurate natural language captions for uploaded images.
+
+### 🚀 How to Run Task 3
+
+> **Warning:** This task requires large Deep Learning packages (`torch`, `transformers`) and will automatically download a ~1 GB pre-trained model upon first execution.
+
+1. **Navigate to the Task 3 folder:**
+```bash
+cd task3_image_captioning
+```
+
+2. **Install Heavy ML Dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Start the Web Server:**
+```bash
+python app.py
+```
+
+4. **Analyze an Image:**
+Open your browser and navigate to `http://127.0.0.1:5002`. Drag and drop any image into the UI, and the AI will analyze the pixel data to return an accurate English caption!
+
+---
+
 ## 🎮 Task 2: AI Tic-Tac-Toe (Minimax)
 
 A web-based Tic-Tac-Toe game featuring an unbeatable AI powered by the **Minimax** algorithm. 
