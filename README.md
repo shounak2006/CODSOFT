@@ -1,8 +1,33 @@
-# Rule-Based Chatbot - CODSOFT AI Internship Task 1
+# CODSOFT AI Internship Projects
 
-## 📋 Project Overview
+This repository contains multiple tasks completed for the CODSOFT Artificial Intelligence internship.
 
-A sophisticated rule-based chatbot that uses pattern matching and predefined rules to engage in natural conversations. Built as part of the CODSOFT Artificial Intelligence internship program.
+---
+
+## 🎮 Task 2: AI Tic-Tac-Toe (Minimax)
+
+A web-based Tic-Tac-Toe game featuring an unbeatable AI powered by the **Minimax** algorithm. 
+
+### 🚀 How to Run Task 2
+
+1. **Navigate to the Task 2 folder:**
+```bash
+cd task2_tictactoe
+```
+
+2. **Start the specific Web Server:**
+```bash
+python app.py
+```
+
+3. **Play the Game:**
+Open your browser and navigate to `http://127.0.0.1:5001`. Try to beat the AI! (Spoiler: It's mathematically impossible).
+
+---
+
+## 🤖 Task 1: Rule-Based Chatbot
+
+A sophisticated rule-based chatbot that uses pattern matching and predefined answers. Built with a premium Web UI wrapper.
 
 ## ✨ Features
 
