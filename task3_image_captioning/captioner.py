@@ -1,4 +1,4 @@
-from transformers import pipeline
+from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 
 class ImageCaptioner:
@@ -8,8 +8,9 @@ class ImageCaptioner:
     """
     def __init__(self):
         print("Loading AI Model (Salesforce/blip-image-captioning-base)...")
-        # BLIP uses a Vision Transformer (ViT) architecture combined with a text decoder
-        self.captioner = pipeline("image-to-text", model="Salesforce/blip-image-captioning-base")
+        # Initialize the BLIP processor and model explicitly instead of via pipeline
+        self.processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+        self.model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
         print("AI Model successfully loaded!")
 
     def generate_caption(self, image_stream):
@@ -18,7 +19,7 @@ class ImageCaptioner:
         and returns the AI-generated caption.
         """
         try:
-            # Convert raw bytes to a PIL object which the transformer pipeline requires
+            # Convert raw bytes to a PIL object which the transformer requires
             image = Image.open(image_stream)
             
             # If the image has an alpha channel (like PNGs), convert to RGB so the model doesn't crash
@@ -26,9 +27,10 @@ class ImageCaptioner:
                 image = image.convert(mode="RGB")
                 
             # Perform inference
-            result = self.captioner(image)
+            inputs = self.processor(image, return_tensors="pt")
+            out = self.model.generate(**inputs)
+            caption = self.processor.decode(out[0], skip_special_tokens=True)
             
-            # The pipeline outputs a list: [{'generated_text': 'caption'}]
-            return result[0]['generated_text'].capitalize() + "."
+            return caption.capitalize() + "."
         except Exception as e:
             return f"Error: Could not process image. ({str(e)})"
