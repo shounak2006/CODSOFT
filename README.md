@@ -138,12 +138,17 @@ Dynamically formats responses with:
 
 I have completely upgraded this project to be a full-stack Web Application with a premium UI.
 
-1. **Install Dependencies**:
+1. **Navigate to the Task 1 folder:**
+```bash
+cd task1_chatbot
+```
+
+2. **Install Dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-2. **Start the Local Web Server**:
+3. **Start the Local Web Server:**
 ```bash
 python app.py
 ```
