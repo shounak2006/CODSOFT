@@ -1,0 +1,20 @@
+# Requirements for Rule-Based Chatbot
+# CODSOFT AI Internship - Task 1
+
+# No external dependencies required!
+# This project uses only Python standard library modules:
+# - re (regular expressions)
+# - random
+# - datetime
+# - typing
+
+# Minimum Python version required
+python>=3.9
+
+# Web Application Integration
+Flask>=2.0.0
+
+# Optional: For enhanced development experience
+# pytest>=7.0.0  # For testing (if you want to write unit tests)
+# black>=22.0.0  # For code formatting
+# flake8>=4.0.0  # For linting
